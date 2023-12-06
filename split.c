@@ -10,7 +10,7 @@ char **split(char *input)
 {
 	char *token;
 	char **array;
-	int i;
+	int i = 0;
 
 	token = strtok(input, " \t\n");
 	array = malloc(sizeof(char *) * MAX_INPUT_LENGTH);

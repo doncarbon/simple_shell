@@ -1,21 +1,31 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "shell.h"
 
-int main(void)
+/**
+ * prompt - display a $ to get the command input.
+ *
+ * Return: command buffer string.
+ */
+char *prompt()
 {
-	char *command = NULL;
-	size_t len = 0;
-	ssize_t line;
+	char *buffer = NULL;
+	size_t buffer_len = 0;
+	int line;
 
-	printf("$ ");
-	line = getline(&command, &len, stdin);
-	if (line == -1)
+	write(1, "$ ",2);
+	line = getline(&buffer, &buffer_len, stdin);
+
+	if (line == EOF)
 	{
-		perror("getline");
+		perror("EOF");
+		free(buffer);
 		exit(EXIT_FAILURE);
 	}
-	printf("\n%s", command);
-	command[len - 1] = '\0';
+	
+	if (line == 0 || (strcmp(buffer, "exit") == 0))
+	{
+		free(buffer);
+		exit(EXIT_SUCCESS);
+	}
 
-	return (0);
+	return (buffer);
 }

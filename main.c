@@ -7,7 +7,7 @@
  */
 int main()
 {
-	char **command;
+	char **command = NULL;
 	int status = 0;
 	pid_t pid;
 
