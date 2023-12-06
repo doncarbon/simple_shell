@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#include <strings.h>
+#include <string.h>
 #include <stdlib.h>
 
 int main()
@@ -29,7 +29,7 @@ int main()
 		}
 		array[i] = NULL;
 		pid = fork();
-		if (pid = 0)
+		if (pid == 0)
 		{
 			if (execve(array[0], array, NULL) == -1)
 				perror("execve");
