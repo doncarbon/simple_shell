@@ -11,12 +11,14 @@ char *prompt()
 	size_t buffer_len = 0;
 	int line;
 
-	write(1, "$ ",2);
+	if (isatty(STDIN_FILENO))
+		write(1, "$ ",2);
 	line = getline(&buffer, &buffer_len, stdin);
 
 	if (line == EOF)
 	{
-		perror("EOF");
+		if (isatty(STDIN_FILENO))
+			write(1, "\n", 1);
 		free(buffer);
 		exit(EXIT_FAILURE);
 	}
