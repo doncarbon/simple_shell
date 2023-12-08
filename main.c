@@ -9,8 +9,7 @@ int main(int argc, char **argv)
 {
 	char **command = NULL;
 	char *line = NULL;
-	int status = 0;
-	/*pid_t pid;*/
+	int status = 0, index = 0;
 	(void) argc;
 
 	while (1)
@@ -23,9 +22,10 @@ int main(int argc, char **argv)
 			free(line), line = NULL;
 			return (status);
 		}
+		index++;
 		command = split(line);
 		if (!command)
 			continue;
-		status = executor(command, argv);
+		status = executor(command, argv, index);
 	}
 }

@@ -10,3 +10,7 @@ void free2d(char **array)
 
 	free(array), array = NULL;
 }
+void error(char *shell, char *cmd, int index)
+{
+	fprintf(stderr, "%s: %i: %s: not found\n", shell, index, cmd);
+}
