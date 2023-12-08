@@ -13,6 +13,7 @@
 #include <fcntl.h>
 
 extern char **environ;
+
 char *prompt();
 char **split(char *input);
 int executor(char **command, char **argv, int index);
@@ -20,4 +21,5 @@ void free2d(char **array);
 char *_getenv(char *str);
 char *pathfinder(char *cmd);
 void error(char *shell, char *cmd, int index);
+
 #endif

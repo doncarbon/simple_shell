@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * split - splits command to tokens
- * @input: command to split
+ * split - Split a string into an array of tokens.
+ * @input: The string to be split.
  *
- * Return: array of tokens
+ * Return: An array of tokens, or NULL on failure.
  */
 char **split(char *input)
 {
@@ -12,7 +12,7 @@ char **split(char *input)
 	char **array;
 	int count = 0;
 	int i = 0;
-	
+
 	if (!input)
 		return (NULL);
 	tmp = strdup(input);
@@ -36,7 +36,7 @@ char **split(char *input)
 		return (NULL);
 	}
 
-	token = strtok(input, " \t\n"); 
+	token = strtok(input, " \t\n");
 	while (token)
 	{
 		array[i] = strdup(token);

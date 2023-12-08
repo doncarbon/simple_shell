@@ -1,5 +1,12 @@
 #include "shell.h"
 
+/**
+ * _getenv - Get the value of an environment variable.
+ * @str: The name of the environment variable.
+ *
+ * Return: The value of the environment variable, or NULL if not found.
+ */
+
 char *_getenv(char *str)
 {
 	int i;
@@ -21,5 +28,5 @@ char *_getenv(char *str)
 		}
 		free(tmp);
 	}
-	return(NULL);
+	return (NULL);
 }

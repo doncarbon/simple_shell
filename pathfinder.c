@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/**
+ * pathfinder - Find the full path of a command in the PATH environment.
+ * @cmd: The command to search for.
+ *
+ * Return: the full path of a command, or NULL if not found
+ */
 char *pathfinder(char *cmd)
 {
 	struct stat sta;
@@ -12,7 +18,7 @@ char *pathfinder(char *cmd)
 	{
 		if (cmd[i] == '/')
 		{
-			if(stat(cmd, &sta) == 0)
+			if (stat(cmd, &sta) == 0)
 				return (strdup(cmd));
 			else
 				return (NULL);
@@ -22,18 +28,18 @@ char *pathfinder(char *cmd)
 	if (pathenv == NULL)
 		return (NULL);
 	folder = strtok(pathenv, ":");
-	while(folder)
+	while (folder)
 	{
 		wholecmd = malloc(strlen(folder) + strlen(cmd) + 2);
 		if (!wholecmd)
-			return(NULL);
+			return (NULL);
 		strcpy(wholecmd, folder);
 		strcat(wholecmd, "/");
 		strcat(wholecmd, cmd);
-		if(stat(wholecmd, &sta) == 0)
+		if (stat(wholecmd, &sta) == 0)
 		{
 			free(pathenv);
-			return(wholecmd);
+			return (wholecmd);
 		}
 		free(wholecmd);
 		folder = strtok(NULL, ":");

@@ -1,7 +1,9 @@
 #include "shell.h"
 
 /**
- * main - Entry point
+ * main - Entry point for the simple shell.
+ * @argc: The number of command-line arguments.
+ * @argv: An array of strings containing the command-line arguments.
  *
  * Return: 0 (Success) 1 (Failure)
  */

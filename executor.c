@@ -1,5 +1,14 @@
 #include "shell.h"
 
+/**
+ * executor - Execute a command with arguments.
+ * @command: An array of strings representing the command and its arguments.
+ * @argv: An array of strings containing the command-line arguments.
+ * @index: The index where the command is located.
+ *
+ * Return: The exit status of the executed command.
+ */
+
 int executor(char **command, char **argv, int index)
 {
 	char *wholecmd;
@@ -7,11 +16,11 @@ int executor(char **command, char **argv, int index)
 	int status;
 
 	wholecmd = pathfinder(command[0]);
-	if(wholecmd == NULL)
+	if (wholecmd == NULL)
 	{
 		error(argv[0], command[0], index);
 		free2d(command);
-		return(127);
+		return (127);
 	}
 	son = fork();
 	if (son == 0)
@@ -29,5 +38,5 @@ int executor(char **command, char **argv, int index)
 		free2d(command);
 		free(wholecmd);
 	}
-	return(WEXITSTATUS(status));
+	return (WEXITSTATUS(status));
 }
