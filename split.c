@@ -9,7 +9,7 @@
 char **split(char *input)
 {
 	char *token = NULL, *tmp = NULL;
-	char **array;
+	char **array = NULL;
 	int count = 0;
 	int i = 0;
 

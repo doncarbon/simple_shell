@@ -10,10 +10,10 @@
 char *_getenv(char *str)
 {
 	int i;
-	char *tmp;
-	char *cp;
-	char *k;
-	char *value;
+	char *tmp = NULL;
+	char *cp = NULL;
+	char *k = NULL;
+	char *value = NULL;
 
 	for (i = 0; environ[i]; i++)
 	{

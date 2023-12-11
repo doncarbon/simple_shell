@@ -30,4 +30,5 @@ int main(int argc, char **argv)
 			continue;
 		status = executor(command, argv, index);
 	}
+	free(line);
 }

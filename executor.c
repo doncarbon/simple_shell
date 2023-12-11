@@ -11,7 +11,7 @@
 
 int executor(char **command, char **argv, int index)
 {
-	char *wholecmd;
+	char *wholecmd = NULL;
 	pid_t son;
 	int status;
 
