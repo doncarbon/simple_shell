@@ -18,10 +18,25 @@ int executor(char **command, char **argv, int index)
 	wholecmd = pathfinder(command[0]);
 	if (wholecmd == NULL)
 	{
+		if (strcmp(command[0], "exit") == 0)
+		{
+			free2d(command);
+			free(wholecmd);
+			exit(EXIT_SUCCESS);
+		}
 		error(argv[0], command[0], index);
 		free2d(command);
 		return (127);
 	}
+
+	if (strcmp(command[0], "env") == 0)
+	{
+		print_environment();
+		free2d(command);
+		free(wholecmd);
+		return (0);
+	}
+
 	son = fork();
 	if (son == 0)
 	{

@@ -21,5 +21,6 @@ void free2d(char **array);
 char *_getenv(char *str);
 char *pathfinder(char *cmd);
 void error(char *shell, char *cmd, int index);
+void print_environment(void);
 
 #endif
