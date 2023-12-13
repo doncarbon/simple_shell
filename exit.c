@@ -15,7 +15,7 @@ int builtin_exit(char *command)
 		exit_status = atoi(command);
 		if (exit_status == 0 && command[0] != '0')
 		{
-			return (0);
+			return (2);
 		}
 	}
 
