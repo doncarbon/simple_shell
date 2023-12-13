@@ -14,25 +14,23 @@ int executor(char **command, char **argv, int index)
 	char *wholecmd = NULL;
 	pid_t son;
 	int status;
-
-	wholecmd = pathfinder(command[0]);
-	if (wholecmd == NULL)
-	{
-		if (strcmp(command[0], "exit") == 0)
-		{
-			free(wholecmd);
-			builtin_exit(command);
-		}
-		error(argv[0], command[0], index);
-		free2d(command);
-		return (127);
-	}
+	
+	if (command[0] == NULL)
+		return (0);
+	if (strcmp(command[0], "exit") == 0)
+		builtin_exit(command);
 	if (strcmp(command[0], "env") == 0)
 	{
 		print_environment();
 		free2d(command);
-		free(wholecmd);
 		return (0);
+	}
+	wholecmd = pathfinder(command[0]);
+	if (wholecmd == NULL)
+	{
+		error(argv[0], command[0], index);
+		free2d(command);
+		return (127);
 	}
 	son = fork();
 	if (son == 0)
@@ -41,8 +39,8 @@ int executor(char **command, char **argv, int index)
 		{
 			free(wholecmd);
 			free2d(command);
+			exit(EXIT_FAILURE);
 		}
-		exit(EXIT_SUCCESS);
 	}
 	else
 	{

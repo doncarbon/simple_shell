@@ -23,5 +23,8 @@ char *pathfinder(char *cmd);
 void error(char *shell, char *cmd, int index);
 void print_environment(void);
 int builtin_exit(char **command);
+int unsetenv_builtin(char **command);
+int setenv_builtin(char **command);
+int change_dir(char **path);
 
 #endif

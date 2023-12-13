@@ -28,7 +28,14 @@ int main(int argc, char **argv)
 		command = split(line);
 		if (!command)
 			continue;
-		status = executor(command, argv, index);
+		if (strcmp(command[0], "cd") == 0)
+			status = change_dir(command);
+		else if (strcmp(command[0], "setenv") == 0)
+			status = setenv_builtin(command);
+		else if (strcmp(command[0], "unsetenv") == 0)
+			status = unsetenv_builtin(command);
+		else
+			status = executor(command, argv, index);
 	}
 	free(line);
 }

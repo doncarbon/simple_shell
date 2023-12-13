@@ -12,7 +12,7 @@ int builtin_exit(char **command)
 
 	if (command[1] == NULL)
 	{
-		status = 127;
+		status = 0;
 	}
 	else
 	{
