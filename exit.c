@@ -8,14 +8,14 @@
  */
 int builtin_exit(char *command)
 {
-	int exit_status = 0;
+	int exit_status = 127;
 
 	if (command != NULL)
 	{
 		exit_status = atoi(command);
 		if (exit_status == 0 && command[0] != '0')
 		{
-			return (2);
+			return (0);
 		}
 	}
 
