@@ -8,7 +8,7 @@
  */
 int builtin_exit(char *command)
 {
-	int exit_status = 127;
+	int exit_status = 2;
 
 	if (command != NULL)
 	{
