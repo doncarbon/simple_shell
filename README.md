@@ -21,8 +21,9 @@ These instructions will guide you on how to compile and run the simple shell on 
 
 ### Compilation
 
-```bash
+```
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+```
 
 ### Authors
 
