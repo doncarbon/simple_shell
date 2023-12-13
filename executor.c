@@ -14,7 +14,7 @@ int executor(char **command, char **argv, int index)
 	char *wholecmd = NULL;
 	pid_t son;
 	int status;
-	
+
 	if (command[0] == NULL)
 		return (0);
 	if (strcmp(command[0], "exit") == 0)

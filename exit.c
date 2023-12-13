@@ -12,7 +12,7 @@ int builtin_exit(char **command)
 
 	if (command[1] == NULL)
 	{
-		status = 0;
+		status = 2;
 	}
 	else
 	{
@@ -20,7 +20,6 @@ int builtin_exit(char **command)
 	}
 
 	free2d(command);
-	exit(status);
 
 	return (status);
 }
