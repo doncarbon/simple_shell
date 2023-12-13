@@ -32,7 +32,10 @@ char *pathfinder(char *cmd)
 	{
 		wholecmd = malloc(strlen(folder) + strlen(cmd) + 2);
 		if (!wholecmd)
+		{
+			free(pathenv);
 			return (NULL);
+		}
 		strcpy(wholecmd, folder);
 		strcat(wholecmd, "/");
 		strcat(wholecmd, cmd);

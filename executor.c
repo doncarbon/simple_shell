@@ -13,7 +13,7 @@ int executor(char **command, char **argv, int index)
 {
 	char *wholecmd = NULL;
 	pid_t son;
-	int status;
+	int status, exit_status = 0;
 
 	wholecmd = pathfinder(command[0]);
 	if (wholecmd == NULL)
@@ -21,7 +21,9 @@ int executor(char **command, char **argv, int index)
 		if (strcmp(command[0], "exit") == 0)
 		{
 			free(wholecmd);
-			builtin_exit(command);
+			exit_status = builtin_exit(command[1]);
+			free2d(command);
+			exit(exit_status);
 		}
 		error(argv[0], command[0], index);
 		free2d(command);

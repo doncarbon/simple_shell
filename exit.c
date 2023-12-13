@@ -6,21 +6,18 @@
  *
  * Return: The exit status to be used to exit the shell.
  */
-int builtin_exit(char **command)
+int builtin_exit(char *command)
 {
-	int status = 0;
+	int exit_status = 0;
 
-	if (command[1] == NULL)
+	if (command != NULL)
 	{
-		status = 127;
-	}
-	else
-	{
-		status = atoi(command[1]);
+		exit_status = atoi(command);
+		if (exit_status == 0 && command[0] != '0')
+		{
+			return (2);
+		}
 	}
 
-	free2d(command);
-	exit(status);
-
-	return (status);
+	return (exit_status);
 }
