@@ -9,9 +9,7 @@
 char *pathfinder(char *cmd)
 {
 	struct stat sta;
-	char *pathenv = NULL;
-	char *wholecmd = NULL;
-	char *folder = NULL;
+	char *pathenv = NULL, *wholecmd = NULL, *folder = NULL;
 	int i;
 
 	for (i = 0; cmd[i]; i++)

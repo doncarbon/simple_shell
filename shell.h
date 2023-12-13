@@ -22,6 +22,6 @@ char *_getenv(char *str);
 char *pathfinder(char *cmd);
 void error(char *shell, char *cmd, int index);
 void print_environment(void);
-int builtin_exit(char *command);
+int builtin_exit(char **command);
 
 #endif
