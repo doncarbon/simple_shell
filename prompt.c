@@ -17,8 +17,13 @@ char *prompt(void)
 
 	if (line == -1)
 	{
-		free(buffer);
-		return (NULL);
+		if(feof(stdin))
+		{
+			free(buffer);
+			return (NULL);
+		}
+		perror("getline");
+		exit(EXIT_FAILURE);
 	}
 	return (buffer);
 }
