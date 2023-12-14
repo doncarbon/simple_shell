@@ -50,8 +50,5 @@ int main() {
 
         while (token != NULL && arg_count < MAX_ARGUMENTS - 1) {
             args[arg_count++] = token;
-            token = strtok(NULL, " ");
-        }
-
 
 
