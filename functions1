@@ -54,7 +54,5 @@ int main() {
         }
 
         // Null-terminate the arguments array
-        args[arg_count] = NULL;
-
 
 
