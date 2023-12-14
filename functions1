@@ -61,5 +61,4 @@ int main() {
             should_run = 0;
         } else {
             // Execute the command
-            execute_command(args);
 
