@@ -62,9 +62,4 @@ int main() {
         } else {
             // Execute the command
             execute_command(args);
-        }
-    }
-
-    return 0;
-}
 
