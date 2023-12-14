@@ -58,7 +58,6 @@ int main() {
 
         // Check for exit command
         if (strcmp(args[0], "exit") == 0) {
-            should_run = 0;
-        } else {
-            // Execute the command
+            should_run = 0
+
 
